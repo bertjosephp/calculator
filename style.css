@@ -8,6 +8,7 @@ main {
 .calculator {
     width: 400px;
     background-color: #f0f1f2;
+    margin-top: 100px;
 }
 
 .screen-container {
