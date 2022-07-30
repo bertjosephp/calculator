@@ -154,7 +154,13 @@ buttons.forEach((button) => {
 
         // delete button
         else if (e.target.textContent === 'DEL') {
-            if (currentInputString !== '') {
+            if (/[a-zA-z]/.test(currentInputString)) {
+                previousInputString = '';
+                currentInputString = '';
+                firstNumber = undefined;
+                secondNumber = undefined;
+                currentOperator = undefined;
+            } else if (currentInputString !== '') {
                 currentInputString = currentInputString.slice(0, -1);
             }
         }
