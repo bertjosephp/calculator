@@ -59,8 +59,7 @@ button {
     box-shadow: 0 3px gray;
 }
 
-.clear-button,
-.delete-button {
+.wide-button {
     grid-column: span 2;
     background-color: #ce9d7d;
 }
@@ -72,6 +71,10 @@ button {
 .equals-button {
     background-color: blue;
     color: white;
+}
+
+.operator-button {
+    background-color: whitesmoke;
 }
 
 button:active {

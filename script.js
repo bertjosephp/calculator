@@ -73,6 +73,7 @@ function setOperator(string) {
 
 buttons.forEach((button) => {
     button.addEventListener('click', (e) => {
+        // number buttons
         if (numbers.includes(e.target.textContent)) {
             if (previousInputString.slice(-1) === '=') {
                 previousInputString = '';
@@ -80,7 +81,10 @@ buttons.forEach((button) => {
                 firstNumber = undefined;
             }
             currentInputString += e.target.textContent;
-        } else if (operators.includes(e.target.textContent)) {
+        } 
+
+        // operator buttons
+        else if (operators.includes(e.target.textContent)) {
             if (!firstNumber && currentInputString === '') {
                 //do nothing
             } else if (!firstNumber) {
@@ -106,15 +110,16 @@ buttons.forEach((button) => {
                 setOperator(e.target.textContent);
                 previousInputString = previousInputString.slice(0, -1) + e.target.textContent;
             }
-        } else if (e.target.textContent === '=') {
+        }
+
+        // equals button
+        else if (e.target.textContent === '=') {
             if (previousInputString.slice(-1) === '=') {
                 setFirstNumber(currentInputString);
                 previousInputString = firstNumber + ' ' + e.target.textContent;
-                console.log("HELLO");
             } else if (firstNumber === undefined && secondNumber === undefined && currentInputString !== '') {
                 setFirstNumber(currentInputString);
                 previousInputString = firstNumber + ' ' + e.target.textContent;
-                console.log("THERE");
             } else if (!secondNumber && currentInputString) {
                 setSecondNumber(currentInputString);
                 previousInputString += ' ' + secondNumber + ' ' + e.target.textContent;
