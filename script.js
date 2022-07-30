@@ -129,6 +129,31 @@ buttons.forEach((button) => {
                 currentOperator = undefined;
             }
         }
+
+        // decimal button
+        else if (e.target.textContent === '.') {
+            if (!currentInputString.includes('.')) {
+                currentInputString += e.target.textContent;
+            }
+        }
+
+        // clear button
+        else if (e.target.textContent === 'C') {
+            previousInputString = '';
+            currentInputString = '';
+            firstNumber = undefined;
+            secondNumber = undefined;
+            currentOperator = undefined;
+        }
+
+        // delete button
+        else if (e.target.textContent === 'DEL') {
+            if (currentInputString !== '') {
+                currentInputString = currentInputString.slice(0, -1);
+            }
+        }
+
+        // display
         currentDisplay.textContent = currentInputString;
         previousDisplay.textContent = previousInputString;
     });
