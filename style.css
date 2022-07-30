@@ -28,11 +28,13 @@ main {
 .previous-display {
     font-size: 25px;
     text-align: left;
+    min-height: 30px;
 }
 
 .current-display {
     font-size: 40px;
     text-align: right;
+    min-height: 45px;
 }
 
 .button-container {
