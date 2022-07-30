@@ -39,6 +39,8 @@ function operate(operator, a, b) {
             return multiply(a, b);
         case '÷':
             if (b === 0) {
+                firstNumber = undefined;
+                secondNumber = undefined;
                 return 'Undefined';
             } else {
                 return divide(a, b);
@@ -87,6 +89,8 @@ buttons.forEach((button) => {
         else if (operators.includes(e.target.textContent)) {
             if (!firstNumber && currentInputString === '') {
                 //do nothing
+            } else if (/[a-zA-z]/.test(currentInputString)) {
+                //do nothing
             } else if (!firstNumber) {
                 setFirstNumber(currentInputString);
                 setOperator(e.target.textContent);
@@ -114,7 +118,9 @@ buttons.forEach((button) => {
 
         // equals button
         else if (e.target.textContent === '=') {
-            if (previousInputString.slice(-1) === '=') {
+            if (/[a-zA-z]/.test(currentInputString)) {
+                //do nothing
+            } else if (previousInputString.slice(-1) === '=') {
                 setFirstNumber(currentInputString);
                 previousInputString = firstNumber + ' ' + e.target.textContent;
             } else if (firstNumber === undefined && secondNumber === undefined && currentInputString !== '') {
