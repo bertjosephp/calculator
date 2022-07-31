@@ -30,12 +30,15 @@ main {
     font-size: 25px;
     text-align: left;
     min-height: 30px;
+    word-wrap: break-word;
+    padding-bottom: 25px;
 }
 
 .current-display {
     font-size: 40px;
     text-align: right;
     min-height: 45px;
+    word-wrap: break-word;
 }
 
 .button-container {
